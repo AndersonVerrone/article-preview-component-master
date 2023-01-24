@@ -1,0 +1,207 @@
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: hsl(210, 46%, 95%);
+    display: grid;
+    grid-template-rows: 95% 1fr;
+    grid-template-areas: 
+    "main"
+    "footer";
+    justify-items: center;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+}
+main {
+    grid-area: main;
+    width: 50rem;
+    height: 18.182rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-content: center;
+    grid-template-areas: "img desc desc";
+}
+main>img {
+    grid-area: img;
+    width: 17rem;
+    height: 18.182rem;
+    border-radius: 20px 0 0 20px;
+}
+.article {
+    grid-area: desc;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 0 20px 20px 0;
+    box-sizing: border-box;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.title {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.desc {
+    font-weight: 500;
+    margin-top: -1.5rem;
+}
+.articleUser {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+.imgUser {
+    width: 3.5rem;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+}
+.user {
+    margin: 0 0 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+}
+.userName,.userDate {
+    margin: 0;
+}
+.userName {
+    font-weight: 700;
+}
+.userDate {
+    font-weight: 200;
+    color: hsl(212, 23%, 69%);
+}
+.share {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    right: -0.3rem;
+    background-color: hsl(210, 46%, 95%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    bottom: 2.5rem;
+    cursor: pointer;
+}
+.popUp {
+    position: absolute;
+    top: -3.5rem;
+    right: -6.3rem;
+    width: 14rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.popUp__sup {
+    background-color: hsl(217, 19%, 35%);
+    width: 100%;
+    height: 3rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popUp__sup__text {
+    margin-right: 0.8rem;
+    text-transform: uppercase;
+    color: hsl(212, 23%, 69%);
+    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
+}
+.popUp__sup__link>a {
+    margin-left: 0.8rem;
+}
+.popUp__low {
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-top: 1rem solid hsl(217, 19%, 35%);
+}
+.disable{
+    display: none;
+}
+body>div {
+    grid-area: footer;
+}
+
+@media screen and (max-width:375px) {
+    main {
+        width: 90vw;
+        height: 80vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3,1fr);
+        justify-content: center;
+        align-content: center;
+        grid-template-areas: 
+        "img"
+        "desc" 
+        "desc";
+    }
+    main>img {
+        width: 90vw;
+        height: 35vh;
+        border-radius: 20px 20px 0 0;
+        font-size: 1rem;
+    }
+    .article {
+        border-radius: 0 0 20px 20px;
+        padding-left: 2rem;
+        padding-right: 1rem;
+    }
+    .title {
+        font-weight: 800;
+        font-size: 1rem;
+    }
+    .desc {
+        font-size: 1rem;
+        font-weight: 300;
+        margin-top: 0;
+    }
+    .articleUser {
+        align-items: flex-end;
+        justify-content: flex-start;
+        width: 100%;
+        margin-bottom: -1.5rem;
+    }
+    .imgUser {
+        width: 3rem;
+    }
+    .user {
+        margin: 0 0 2rem 1rem;
+        gap: .3rem;
+    }
+    .share {
+        right: 0;
+        bottom: 2.6rem;
+        z-index: 2;
+    }
+    .popUp {
+        position: absolute;
+        top: -1rem;
+        left: -2rem;
+        width: 90vw;
+        height: 5rem;
+    }
+    .popUp__sup {
+        width: 100%;
+        height: 100%;
+        border-radius: 0 0 20px 20px; 
+        justify-content: flex-start;
+    }
+    .popUp__sup__text{
+        margin-left: 2rem;
+    }
+    .active {
+        background-color: hsl(214, 17%, 51%);
+    }
+    .share.active>svg>path {
+        fill: white;
+    }
+    .popUp__low {
+        display: none;
+    }
+}
